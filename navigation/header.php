@@ -2,6 +2,7 @@
     require_once '../serverscripts/dbcon.php';
     require_once '../serverscripts/Classes/Tickets.php';
     require_once '../serverscripts/Classes/Users.php';
+    require_once '../serverscripts/Classes/Astroturf.php';
  ?>
 
 <!DOCTYPE html>

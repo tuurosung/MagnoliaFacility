@@ -131,9 +131,9 @@
 
 
 
-    function TicketRevenue($start,$end){
+    function AstroturfRevenue($start,$end){
       $query=mysqli_query($this->db,"SELECT SUM(amount_paid-balance) as total_revenue
-                                                          FROM ticket_checkout
+                                                          FROM astroturf_bookings
                                                           WHERE date BETWEEN '".$start."' AND '".$end."'
                                                           AND status='active'
                                     ") or die(mysqli_error($this->db));
@@ -141,13 +141,13 @@
       return $info['total_revenue'];
     }
 
-    function TicketSold($start,$end){
-      $query=mysqli_query($this->db,"SELECT SUM(qty) as tickets_sold FROM tickets
-                                                          WHERE date_created BETWEEN '".$start."' AND '".$end."'
+    function AstroturfBookings($start,$end){
+      $query=mysqli_query($this->db,"SELECT COUNT(*) as bookings FROM astroturf_bookings
+                                                          WHERE match_date BETWEEN '".$start."' AND '".$end."'
                             ") or die(mysqli_error($this->db));
 
       $info=mysqli_fetch_array($query);
-      return $info['tickets_sold'];
+      return $info['bookings'];
     }
 
 
